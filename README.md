@@ -25,9 +25,8 @@ and set of leaks.
   spread saturates toward ~104 degrees (the projected-normal limit) as the
   wind dies. The relationships were validated against a 2024 field
   calibration study (9.2 million calibrated 10 Hz anemometer samples over
-  420 survey hours) and the boundary-layer literature (Hanna 1983;
-  Sagendorf & Dickson 1974; Cirillo & Poli 1992; Mahrt 2011; Anfossi et
-  al. 2005). Citations sit beside the code in the page source.
+  420 survey hours) and the boundary-layer literature (Sagendorf &
+  Dickson 1974; Cirillo & Poli 1992; Mahrt 2011; Anfossi et al. 2005). Citations sit beside the code in the page source.
 - **Detection and inference** - each drive-by sample updates a log-odds
   evidence map: a detection adds evidence across the wedge of ground upwind
   of the car, and clean air is a real observation that subtracts evidence -
@@ -36,6 +35,18 @@ and set of leaks.
   found stays found, reported with its best miss distance.
 - **Coverage** - pellets along the roadway are eaten as the wheels pass over
   them, showing at a glance which streets each pass has actually covered.
+- **The source term** - two to six leaks per episode, one per 900 m of
+  centreline, each placed on a building's service line a few metres off the
+  kerb rather than at a random point. Release rates are drawn from a
+  truncated log-normal, median 10 SLPM with a geometric standard deviation
+  of 6, so an episode spans roughly 0.1 to 880 SLPM and the large-leak tail
+  is rare rather than routine.
+- **The verdict** - a defined test, not an impression. A leak counts as
+  found if a surviving hypothesis lands within 75 m of it, plus a one-hop
+  rule that also credits a second leak within 46 m of a found one, which is
+  the 150-foot disk a repair crew is dispatched to search. At the end of the
+  passes the gas is shut off, the wind sweeps the map clear, and every leak
+  stands revealed green or red for twenty seconds.
 
 ## Scenarios
 
@@ -44,7 +55,19 @@ wind (the hard case - the upwind arc refuses to close), the same streets
 driven four times in neutral air, and a wind that shifts between passes.
 Street networks are real neighbourhoods; pin one with `?hood=` (`norcross`,
 `trussville`, `bowie`, `ftcollins`, `levittown`, `northend`, `chicago`,
-`tulane`).
+`tulane`, `baltimore`).
+
+## Running it
+
+Open `index.html` in a browser, or follow the link above. One file, no build,
+no server, no keys. It is written for a 4K screen and scales down. Press `i`
+for the parameters the run is using. An episode hands on to the next by
+reloading; add `?pin` to keep the current one going instead.
+
+## The rest of them
+
+This piece belongs to a wall of simulations, all of them single HTML files:
+[worldbyjoe.github.io/tv-art-display](https://worldbyjoe.github.io/tv-art-display/).
 
 ## Provenance
 
